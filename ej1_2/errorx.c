@@ -4,7 +4,7 @@
 #include <string.h>
 
 char *strerror(int errnum);
-extern errno;
+int extern errno;
 
 void error(char* nfichero,  int nro_linea, char* mensaje)
 {
@@ -28,13 +28,13 @@ void error(char* nfichero,  int nro_linea, char* mensaje)
 				i++;
 			}
 		}
+	}
+	else
+	{
+		printf("No FILE");
 	}	
-	printf("%d", errno);
+	//printf("%d", errno);
 
-	//for(i=0;i<134;i++)
-	//	printf("%d\t%s\n",i, errores[i]);
-
-        //llenar con el archivo errores
-        printf("%s (%d). ERROR: %s, ", nfichero, nro_linea, errores[errno]);
+	printf("%s (%d). ERROR: %s, ", nfichero, nro_linea, errores[errno]);
         printf("%s. %s\n", strerror(errno), mensaje);
 }
